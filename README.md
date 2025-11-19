@@ -18,7 +18,7 @@ Completa estos campos si quieres arrancar el bot:
 
 ```json
 {
-  "token": "Aquí va el Token del bot",
+  "token": "",
   "botId": "Aquí va la ID del bot"
 }
 ```
