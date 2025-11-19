@@ -9,6 +9,7 @@ const {
   ButtonStyle,
   OverwriteType,
 } = require("discord.js");
+const path = require("path");
 const fs = require("fs");
 const config = require("../config.json");
 const discordTranscripts = require("discord-html-transcripts");
@@ -50,12 +51,15 @@ const client = new Client({
 });
 
 client.slashCommands = new Collection();
+
+const slashCommandsPath = path.join(__dirname, "..", "slashCommands");
+
 const slashCommandsFiles = fs
-  .readdirSync("../slashCommands")
-  .filter((file) => file.endsWith("js"));
+  .readdirSync(slashCommandsPath)
+  .filter((file) => file.endsWith(".js"));
 
 for (const file of slashCommandsFiles) {
-  const slash = require(`../slashCommands/${file}`);
+  const slash = require(path.join(slashCommandsPath, file));
   client.slashCommands.set(slash.data.name, slash);
 }
 
