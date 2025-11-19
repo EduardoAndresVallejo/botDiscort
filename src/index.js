@@ -13,6 +13,9 @@ const fs = require("fs");
 const config = require("../config.json");
 const discordTranscripts = require("discord-html-transcripts");
 
+require("dotenv").config();
+
+
 const client = new Client({
   intents: [
     GatewayIntentBits.AutoModerationConfiguration,
@@ -195,4 +198,4 @@ client.on("interactionCreate", async (interaction) => {
   }
 });
 
-client.login(config.token);
+client.login(process.env.token_secreto);
