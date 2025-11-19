@@ -51,11 +51,11 @@ const client = new Client({
 
 client.slashCommands = new Collection();
 const slashCommandsFiles = fs
-  .readdirSync("./slashCommands")
+  .readdirSync("../slashCommands")
   .filter((file) => file.endsWith("js"));
 
 for (const file of slashCommandsFiles) {
-  const slash = require(`./slashCommands/${file}`);
+  const slash = require(`../slashCommands/${file}`);
   client.slashCommands.set(slash.data.name, slash);
 }
 

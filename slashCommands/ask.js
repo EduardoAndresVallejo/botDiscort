@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require("discord.js");
 const { GoogleGenerativeAI } = require("@google/generative-ai");
-const { geminiAPIKey } = require("../../config.json");
+const { geminiAPIKey } = require("../config.json");
 
 module.exports = {
   data: new SlashCommandBuilder()
